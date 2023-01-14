@@ -1,0 +1,54 @@
+<head>
+    <%- include("partial/head.ejs") %>
+</head>
+
+<body>
+    <%- include("partial/header.ejs") %>
+        <div class="container">
+
+            <div class="row bg-secondary p-2 ">
+                <div class="col-6 offset-3 bg-dark text-light">
+                    <form action="/registerdata" method="POST">
+                        <div class="mb-3">
+                            <label for="exampleInputfullname" class="form-label">Full Name</label>
+                            <input type="text" placeholder="Your Full Name" name="fullname" required class="form-control" id="exampleInputfullname">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Email address</label>
+                            <input type="email" placeholder="Your Email" name="email" class="form-control" required id="exampleInputEmail1" aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputdateofbirth" class="form-label">Date of Birth</label>
+                            <input type="date" class="form-control" name="dob" required id="exampleInputdateofbirth">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label">Password</label>
+                            <input type="password" placeholder="Password" name="password" required class="form-control" id="Password1">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleInputConfirmPassword1" class="form-label">Confirm Password</label>
+                            <input type="password" placeholder="Confirm Password" required name="confirmpassword" class="form-control" id="ConfirmPassword1">
+                        </div>
+                        <div class="mb-3 text-center">
+                            <button type="submit" class="btn btn-primary" onclick="return Validate()">Register</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include("partial/footer.ejs") %>
+</body>
+<script type="text/javascript">
+    function Validate() {
+        var password = document.getElementById("Password1").value;
+        var confirmPassword = document.getElementById("ConfirmPassword1").value;
+        if (password != confirmPassword) {
+            alert("Passwords do not match.");
+            return false;
+        }
+        return true;
+    }
+</script>
